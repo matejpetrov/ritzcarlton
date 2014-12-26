@@ -33,7 +33,8 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(ep)
 
     if @employee.save
-      flash[:info] = "A new employee was successfully added"
+      log_in @employee
+      flash[:info] = "Your profile was successfully created"
       redirect_to @employee
     else
       #redirect_to signup_url

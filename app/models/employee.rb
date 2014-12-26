@@ -8,5 +8,4 @@ class Employee < ActiveRecord::Base
 
   validates :username, presence: true, length: { minimum: 5, maximum: 20 }
 
-
 end

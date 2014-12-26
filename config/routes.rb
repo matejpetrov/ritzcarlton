@@ -1,4 +1,4 @@
-Rails.application.routes.draw do  
+Rails.application.routes.draw do    
 
   #get 'home/about'
 
@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   #about_url  -> 'http://www.example.com/about'
   get 'about' => 'statis_pages#about'
   get 'signup' => 'employees#new'
+
+  #routes for the session controller. Logging in and logging out. 
+  get 'login' => 'session#new'
+  post 'login' => 'session#create'
+  get 'logout' => 'session#destroy'
 
   resources :employees  
 
