@@ -1,0 +1,50 @@
+
+<h1>View your profile employee</h1>
+
+  
+
+  <div class="col-md-8">
+  	<div class="col-md-12">
+	  <div class="col-md-2"><label>Name</label></div>
+	  <input type="text" class="form-control" value="<%= @employee.name %>" readonly="readonly"/>
+	</div>
+
+	<div class="col-md-12">
+	  <div class="col-md-2"><label>Surname</label></div>
+	  <input type="text" class="form-control" value="<%= @employee.surname %>" readonly="readonly"/>
+	</div>
+
+	<div class="col-md-12">
+	  <div class="col-md-2"><label>Birth Date</label></div>
+	  <input type="text" class="form-control" value="<%= @employee.birth_date.strftime("%d/%m/%Y") %>" readonly="readonly"/>
+	</div>
+
+	<div class="col-md-12">
+	  <div class="col-md-2"><label>Hired Date</label></div>
+	  <input type="text" class="form-control" value="<%= @employee.hired_date.strftime("%d/%m/%Y") %>" readonly="readonly"/>
+	</div>
+
+	<div class="col-md-12">
+	  <div class="col-md-2"><label>Username</label></div>
+	  <input type="text" class="form-control" value="<%= @employee.username %>" readonly="readonly"/>
+	</div>
+
+	<div class="col-md-12">
+	  <div class="col-md-2"><label>Position</label></div>
+	  <input type="text" class="form-control" value="<%= @position_name %>" readonly="readonly"/>
+	</div>
+
+
+	<div class="col-md-12">
+		<div class="col-md-3" style="margin-top: 20px; margin-left: -12px;">
+			<%= link_to "Edit your info", edit_employee_path(@employee) %></li>
+		</div>
+
+		<div class="col-md-3 col-md-offset-2" style="margin-top: 20px;">
+			
+		</div>
+
+	</div>
+
+
+  </div>	
