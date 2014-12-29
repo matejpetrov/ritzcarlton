@@ -39,16 +39,13 @@
 	  <input type="text" class="form-control" value="<%= @position_name %>" readonly="readonly"/>
 	</div>
 
+	<%= image_tag @employee.picture.url if @employee.picture? %>
+
 
 	<div class="col-md-12">
 		<div class="col-md-3" style="margin-top: 20px; margin-left: -12px;">
 			<%= link_to "Edit your info", edit_employee_path(@employee) %></li>
 		</div>
-
-		<div class="col-md-3 col-md-offset-2" style="margin-top: 20px;">
-			
-		</div>
-
 	</div>
 
 

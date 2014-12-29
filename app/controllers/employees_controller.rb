@@ -3,7 +3,6 @@ class EmployeesController < ApplicationController
   before_action :parameters_for_new, only: [ :new, :edit ]
 
   def new
-
     @employee = Employee.new
   end
 
@@ -35,6 +34,7 @@ class EmployeesController < ApplicationController
     if @employee.save
       log_in @employee
       flash[:info] = "Your profile was successfully created"
+      #change: redirect to the homepage where the employee can view its guests and reservations. 
       redirect_to @employee
     else
       #redirect_to signup_url
@@ -83,18 +83,17 @@ class EmployeesController < ApplicationController
       parameters_for_new
       render 'edit'
     end
-
-
   end
 
 
   private
+
     def employee_params
-      params.require(:employee).permit(:name, :surname, :username, :password, :email, :hired_date)
+      params.require(:employee).permit(:name, :surname, :username, :password, :email, :hired_date, :picture)
     end
 
 
-    #get all the additional parameters given to the edit and new views. These information are: all the positions, days, months and
+    #get all the additional parameters given to the edit and new views. These information are: all the positions and days, months and
     #years for the birth date. 
     def parameters_for_new
       @positions = [ [ '-', '' ] ]

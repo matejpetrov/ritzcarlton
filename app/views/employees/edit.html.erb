@@ -50,6 +50,11 @@
   	</div>
   </div>
 
+  <div class="col-md-12">
+    <div class="col-md-2"><%= f.label :picture %></div>
+    <div class="col-md-5 col-md-offset-1"><%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %></div>
+  </div>
+
   <%= f.submit "Update my account", class: "btn btn-primary create-employee-btn" %>
   
 <% end %>
