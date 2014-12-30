@@ -1,6 +1,7 @@
 class CreateEmployees < ActiveRecord::Migration
   def change
     create_table :employees do |t|
+      
       t.references :position, index: true
 
       t.string :name

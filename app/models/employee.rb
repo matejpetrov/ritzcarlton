@@ -1,5 +1,6 @@
 class Employee < ActiveRecord::Base
   belongs_to :position
+  has_many :guests
 
   validates :position, presence: true
 
@@ -12,6 +13,16 @@ class Employee < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
 
   validate  :picture_size
+
+
+
+  #does three things:
+    #save a secure, hashed password_digest attribute to the database
+    #two virtual attributes password and password_confirmation, including presence validation upon creation and a validation requiring that they match
+    #authenticate method that returns the user when the password is correct(automatically compares the hashed version of what the user entered)            
+  has_secure_password
+
+  validates :password, length: { minimum: 6 }, allow_blank: true
 
 
   private

@@ -1,0 +1,23 @@
+
+<div class="row">
+  <div class="col-md-10">		
+  		<!-- this is a form that will send an AJAX call to the server.  -->
+		<%= form_for @guest do |f| %>
+
+		<%= render 'shared/error_messages', object: f.object %>
+
+		  <div class="col-md-12">
+		  	<div class="col-md-4"><%= f.label :guest_name %></div>
+		  	<div class="col-md-6 col-md-offset-1"><%= f.text_field :guest_name,  class: 'form-control'%></div>
+		  </div>
+
+		  <div class="col-md-12">
+		  	<div class="col-md-4"><%= f.label :guest_surname %></div>
+		  	<div class="col-md-6 col-md-offset-1"><%= f.text_field :guest_surname,  class: 'form-control' %></div>
+		  </div> 
+
+		  <input type="submit" class="btn btn-primary" value="Save changes" />
+
+		<% end %>
+	</div>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141226150836) do
+ActiveRecord::Schema.define(version: 20141229115248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,14 +23,24 @@ ActiveRecord::Schema.define(version: 20141226150836) do
     t.datetime "birth_date"
     t.datetime "hired_date"
     t.string   "username"
-    t.string   "password"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "email"
     t.string   "picture"
+    t.string   "password_digest"
   end
 
   add_index "employees", ["position_id"], name: "index_employees_on_position_id", using: :btree
+
+  create_table "guests", force: :cascade do |t|
+    t.string   "guest_name"
+    t.string   "guest_surname"
+    t.integer  "employee_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "guests", ["employee_id"], name: "index_guests_on_employee_id", using: :btree
 
   create_table "positions", force: :cascade do |t|
     t.string   "label"
@@ -39,4 +49,5 @@ ActiveRecord::Schema.define(version: 20141226150836) do
   end
 
   add_foreign_key "employees", "positions"
+  add_foreign_key "guests", "employees"
 end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do    
 
+  get 'guests/new'
+
   #get 'home/about'
 
   #we define the named routes
@@ -11,13 +13,15 @@ Rails.application.routes.draw do
   #about_url  -> 'http://www.example.com/about'
   get 'about' => 'statis_pages#about'
   get 'signup' => 'employees#new'
+  get 'all_guests' => 'statis_pages#all_guests'
 
   #routes for the session controller. Logging in and logging out. 
   get 'login' => 'session#new'
   post 'login' => 'session#create'
   get 'logout' => 'session#destroy'
 
-  resources :employees  
+  resources :employees
+  resources :guests, only: [:create, :destroy, :edit, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

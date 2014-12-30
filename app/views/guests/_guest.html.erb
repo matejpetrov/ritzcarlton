@@ -1,0 +1,16 @@
+<!-- template used in the user's profile page to display all the microposts.  -->
+<li id="guest-<%= guest.id %>">  
+
+  <span class="content">
+    
+    <%= guest.guest_name %>
+    <%= guest.guest_surname %>
+    
+    <a href="guests/<%= guest.id%>/edit" data-remote="true" data-toggle="modal" data-target="#editModal">
+    	Edit
+    </a>
+        
+
+  </span>
+  
+</li>

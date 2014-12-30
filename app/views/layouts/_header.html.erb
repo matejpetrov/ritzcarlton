@@ -14,7 +14,7 @@
               <!-- Ruby automatically converts current_user to user_path(current_user)  -->
               <li><%= link_to "Profile", current_employee %></li>
               <!-- Link to the Edit page for the current user -->
-              <li><%= link_to "My guests", '#' %></li>
+              <li><%= link_to "My guests", all_guests_path %></li>
               <li class="divider"></li>
               <li>
                 <%= link_to "Log out", logout_path %>

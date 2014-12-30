@@ -2,7 +2,7 @@ module SessionHelper
 
 
   def log_in(employee)
-    session[:employee_id] = employee.id    
+    session[:employee_id] = employee.id
   end
 
 

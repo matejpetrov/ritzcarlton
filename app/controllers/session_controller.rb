@@ -14,7 +14,7 @@ class SessionController < ApplicationController
 
     #if the user is right we need to save the employee id in session variable and set the current user value to the user from the databse
     #with the corresponding ID. 
-    if employee && employee.password == password
+    if employee && employee.authenticate(password)
 
       #Session Helper method - stores the employee ID in session
       log_in employee

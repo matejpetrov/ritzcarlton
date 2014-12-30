@@ -1,0 +1,15 @@
+
+/*$(document).ready(function() {
+	$('#editModal').modal({ show: false});
+	$('#editModal').modal('show');
+});*/
+
+
+//var temp = $('#guest-2').attr('html');
+//var temp = $('#editModal').modal('show');
+
+$('#editModal').html("<%= escape_javascript(render(:partial => 'shared/modal')) %>");
+
+//$('#editModal').modal('show');
+
+//alert(temp);
