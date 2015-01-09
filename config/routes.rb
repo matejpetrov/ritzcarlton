@@ -20,8 +20,10 @@ Rails.application.routes.draw do
   post 'login' => 'session#create'
   get 'logout' => 'session#destroy'
 
+  get 'modal_delete/:id' => 'guests#modal_delete' 
+
   resources :employees
-  resources :guests, only: [:create, :destroy, :edit, :update]
+  resources :guests, only: [:create, :destroy, :edit, :update, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

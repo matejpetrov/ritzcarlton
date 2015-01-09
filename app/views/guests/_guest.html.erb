@@ -9,6 +9,16 @@
     <a href="guests/<%= guest.id%>/edit" data-remote="true" data-toggle="modal" data-target="#editModal">
     	Edit
     </a>
+
+    <a href="modal_delete/<%= guest.id%>" data-remote="true" data-toggle="modal" data-target="#deleteModal">
+    	Delete
+    </a>
+
+    <%= link_to "Preview", guest %>
+
+    <!-- <a href="guests/<%= guest.id%>">
+        Preview
+    </a> -->
         
 
   </span>

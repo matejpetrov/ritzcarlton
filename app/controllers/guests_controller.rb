@@ -1,11 +1,20 @@
 class GuestsController < ApplicationController
 
+
+  def show
+
+    @guest = current_employee.guests.find_by(id: params[:id])
+    
+
+  end
+  
+
   def create
     @guest = current_employee.guests.build(guest_params)
 
     if @guest.save
       flash[:success] = "Added a new guest"
-      redirect_to all_guests_url    
+      redirect_to all_guests_url
     else
       render 'statis_pages/all_guests'
     end
@@ -16,17 +25,52 @@ class GuestsController < ApplicationController
   end
 
   def update
-    @guest = current_employee.guest.find_by(id: params[:id])    
+    
+    @guest = current_employee.guests.find_by(id: params[:id])        
 
-    if @guest.update_attributes(guest_params)
+    respond_to do |format|
 
-    else
+      if @guest.update_attributes(guest_params)
 
-    end
+        @guests = current_employee.guests.all
+
+        format.html { redirect_to all_guests_url, notice: 'Guest was successfully updated' }
+        
+        format.js { }
+
+      else
+        
+      end
+
+
+    end    
 
   end
 
+
+  def modal_delete
+    @guest = current_employee.guests.find_by(id: params[:id])
+  end
+
   def destroy
+
+    @guest = Guest.find_by(id: params[:id])
+
+    respond_to do |format|
+
+      if @guest.destroy
+
+        @guests = current_employee.guests.all
+
+        format.html { redirect_to all_guests_url, notice: 'Guest was successfully updated' }
+        
+        format.js { }
+
+      else
+        
+      end
+
+    end
 
   end
 
