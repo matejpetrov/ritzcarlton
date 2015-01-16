@@ -2,10 +2,7 @@ class GuestsController < ApplicationController
 
 
   def show
-
     @guest = current_employee.guests.find_by(id: params[:id])
-    
-
   end
   
 
