@@ -1,8 +1,9 @@
 class GuestsController < ApplicationController
 
-
   def show
     @guest = current_employee.guests.find_by(id: params[:id])
+    @visits = @guest.visits.all
+    @visit = current_employee.visits.build if logged_in? 
   end
   
 
@@ -31,7 +32,7 @@ class GuestsController < ApplicationController
 
         @guests = current_employee.guests.all
 
-        format.html { redirect_to all_guests_url, notice: 'Guest was successfully updated' }
+        format.html { }
         
         format.js { }
 

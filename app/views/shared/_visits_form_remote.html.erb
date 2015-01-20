@@ -1,0 +1,37 @@
+
+
+<div class="row">
+  <div class="col-md-10 shared_visit_form">		
+  		<!-- this is a form that will send an AJAX call to the server.  -->
+  		<%= content_tag(:h2, "Enter visit for user " + current_employee.name + " " + current_employee.surname)%>
+		<%= form_for @visit, remote: true do |f| %>
+
+		<input type="hidden" name="guest_id" id="guest_id" value="<%= @guest.id %>" />
+
+		<%= render 'shared/error_messages', object: f.object %>
+
+		  <div class="col-md-12">
+		  	<div class="col-md-4"><%= f.label :nights %></div>
+		  	<div class="col-md-6 col-md-offset-1"><%= f.text_field :nights,  class: 'form-control'%></div>
+		  </div>
+
+		  <div class="col-md-12">
+		  	<div class="col-md-4"><%= f.label :price %></div>
+		  	<div class="col-md-6 col-md-offset-1"><%= f.text_field :price,  class: 'form-control' %></div>
+		  </div>
+
+		  <div class="col-md-12">
+		  	<div class="col-md-4"><%= f.label :arrival_date %></div>
+		  	<div class="col-md-6 col-md-offset-1"><%= f.text_field :arrival_date,  class: 'form-control datetimepicker' %></div>
+		  </div> 
+
+		  <div class="col-md-12">
+		  	<div class="col-md-4"><%= f.label :departure_date %></div>
+		  	<div class="col-md-6 col-md-offset-1"><%= f.text_field :departure_date,  class: 'form-control datetimepicker' %></div>
+		  </div> 
+
+		  <input type="submit" class="btn btn-primary" value="Save changes" />
+
+		<% end %>
+	</div>
+</div>

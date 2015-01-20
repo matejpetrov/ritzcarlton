@@ -1,6 +1,7 @@
 class Employee < ActiveRecord::Base
   belongs_to :position
   has_many :guests
+  has_many :visits
 
   validates :position, presence: true
 

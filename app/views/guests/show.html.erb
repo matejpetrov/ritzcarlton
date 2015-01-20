@@ -1,5 +1,30 @@
 
 
+
 <h2><%= @guest.guest_name %> <%= @guest.guest_surname %></h2>
 
 <h3>Guests Visits:</h3>
+
+<input type="hidden" name="guest_id" id="guest_id" value="<%= @guest.id %>" />
+
+<ol id="visits">    	
+	<%= render @visits %>
+</ol>
+
+
+
+<div class="row" style="margin-top: 50px;">
+ <div class="col-md-6">
+ 	<%= render 'shared/visits_form_remote' %>
+ </div>
+</div>
+
+
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	
+</div>

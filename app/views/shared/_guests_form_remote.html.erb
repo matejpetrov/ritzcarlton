@@ -4,7 +4,7 @@
   		<!-- this is a form that will send an AJAX call to the server.  -->
 		<%= form_for @guest, remote: true do |f| %>
 
-		<%= render 'shared/error_messages', object: f.object %>
+		<%= render 'shared/error_messages', object: f.object %>			
 
 		  <div class="col-md-12">
 		  	<div class="col-md-4"><%= f.label :guest_name %></div>

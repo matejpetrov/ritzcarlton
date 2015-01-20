@@ -1,0 +1,33 @@
+<li id="visit-<%= visit.id %>">  
+
+  <span class="content">
+    
+    <%= visit.nights %>
+    <%= visit.price %>    
+    <%= 
+  		if visit.arrival_date
+  			visit.arrival_date.strftime("%d/%m/%Y")
+  		end
+	  %>
+
+    <%= 
+    	if visit.departure_date
+  		  visit.departure_date.strftime("%d/%m/%Y")
+  		end
+    %>  
+
+
+
+    <span id="span_edit_visit" class="span_edit_visit">
+      <a href="<%= edit_visit_path(visit.id) %>" data-remote="true" data-toggle="modal" data-target="#editModal">
+        Edit
+      </a>
+    </span>
+
+    <a href="modal_delete/<%= visit.id %>" data-remote="true" data-toggle="modal" data-target="#deleteModal">
+      Delete
+    </a>
+            
+  </span>
+  
+</li>
